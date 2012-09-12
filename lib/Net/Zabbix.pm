@@ -33,9 +33,9 @@ sub new {
 
     return bless {
         UserAgent => $ua,
-        Request   => $req,
-        Count     => 1,
-        Auth      => $auth,
+        Request => $req,
+        Count => 1,
+        Auth => $auth,
     }, $class;
 }
 
@@ -61,7 +61,7 @@ sub get {
     my $req = $self->req;
     $req->content(encode_json( {
         jsonrpc => "2.0",
-        method => "$object.get",
+        method => "$object",
         params => $params,
         auth => $self->auth,
         id => $self->next_id,
@@ -77,3 +77,4 @@ sub get {
 }
 
 1;
+
